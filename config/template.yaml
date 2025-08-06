@@ -1,0 +1,56 @@
+# Invoice Generator Configuration Template
+# Copy this file to config/default.yaml and customize with your information
+
+biller:
+  name: "Your Name"
+  email: "your.email@example.com"
+  phone: "(555) 123-4567"
+  address:
+    street: "123 Main St"
+    city: "Your City"
+    state: "ST"
+    zip_code: "12345"
+    country: "USA"
+
+defaults:
+  tax_rate: 0.08
+  payment_terms: "Net 30"
+  payment_instructions: "Please remit payment within 30 days of invoice date."
+
+latex:
+  command: "xelatex"
+
+clients:
+  example_client:
+    name: "Example Client Inc"
+    prefix: "ec"
+    address:
+      street: "456 Client St"
+      city: "Client City"
+      state: "ST"
+      zip_code: "67890"
+      country: "USA"
+    contact_email: "contact@exampleclient.com"
+    contact_phone: "(555) 987-6543"
+    rates:
+      default: 150.0
+      code: 150.0
+      design: 125.0
+      research: 175.0
+      meeting: 100.0
+      review: 125.0
+      support: 100.0
+      training: 150.0
+      general: 150.0
+
+# Global hourly rates (fallback when client doesn't specify)
+hourly_rates:
+  default: 150.0
+  code: 150.0
+  design: 125.0
+  research: 175.0
+  meeting: 100.0
+  review: 125.0
+  support: 100.0
+  training: 150.0
+  general: 150.0

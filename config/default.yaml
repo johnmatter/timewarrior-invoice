@@ -1,0 +1,143 @@
+biller:
+  name: "John Matter"
+  email: "john@example.com"
+  phone: "(555) 123-4567"
+  address:
+    street: "123 Main St"
+    city: "Seattle"
+    state: "WA"
+    zip_code: "98101"
+    country: "USA"
+
+defaults:
+  tax_rate: 0.08
+  payment_terms: "Net 30"
+  payment_instructions: "Please pay via bank transfer"
+
+clients:
+  madrona:
+    name: "Madrona Labs"
+    prefix: "madrona"
+    address:
+      street: "1234 Audio Street"
+      city: "Seattle"
+      state: "WA"
+      zip_code: "98101"
+    contact_email: "contact@madronalabs.com"
+    contact_phone: "(555) 123-4567"
+    rates:
+      default: 175.0
+      development: 175.0
+      programming: 175.0
+      coding: 175.0
+      consulting: 225.0
+      testing: 150.0
+      qa: 150.0
+      documentation: 160.0
+      docs: 160.0
+      design: 200.0
+      ui: 200.0
+      ux: 200.0
+      research: 180.0
+      planning: 160.0
+      meeting: 160.0
+      review: 170.0
+      debugging: 165.0
+      bugfix: 165.0
+      maintenance: 155.0
+      support: 145.0
+      training: 190.0
+      general: 175.0
+
+  goodhertz:
+    name: "Goodhertz"
+    prefix: "goodhertz"
+    address:
+      street: "5678 Plugin Avenue"
+      city: "Los Angeles"
+      state: "CA"
+      zip_code: "90210"
+    contact_email: "hello@goodhertz.com"
+    contact_phone: "(555) 987-6543"
+    rates:
+      default: 160.0
+      development: 160.0
+      programming: 160.0
+      coding: 160.0
+      consulting: 200.0
+      testing: 120.0
+      qa: 120.0
+      documentation: 140.0
+      docs: 140.0
+      design: 180.0
+      ui: 180.0
+      ux: 180.0
+      research: 170.0
+      planning: 150.0
+      meeting: 150.0
+      review: 160.0
+      debugging: 155.0
+      bugfix: 155.0
+      maintenance: 145.0
+      support: 135.0
+      training: 180.0
+      general: 160.0
+
+  uhe:
+    name: "u-he"
+    prefix: "uhe"
+    address:
+      street: "9012 Synth Boulevard"
+      city: "Berlin"
+      state: "Berlin"
+      zip_code: "10115"
+    contact_email: "info@u-he.com"
+    contact_phone: "+49 30 12345678"
+    rates:
+      default: 140.0
+      development: 140.0
+      programming: 140.0
+      coding: 140.0
+      consulting: 180.0
+      testing: 120.0
+      qa: 120.0
+      documentation: 130.0
+      docs: 130.0
+      design: 160.0
+      ui: 160.0
+      ux: 160.0
+      research: 150.0
+      planning: 130.0
+      meeting: 130.0
+      review: 140.0
+      debugging: 135.0
+      bugfix: 135.0
+      maintenance: 125.0
+      support: 115.0
+      training: 160.0
+      general: 140.0
+
+# Global task rates (fallback when client doesn't specify)
+hourly_rates:
+  default: 150.0
+  development: 150.0
+  programming: 150.0
+  coding: 150.0
+  consulting: 200.0
+  testing: 100.0
+  qa: 100.0
+  documentation: 120.0
+  docs: 120.0
+  design: 180.0
+  ui: 180.0
+  ux: 180.0
+  research: 160.0
+  planning: 140.0
+  meeting: 140.0
+  review: 130.0
+  debugging: 140.0
+  bugfix: 140.0
+  maintenance: 130.0
+  support: 120.0
+  training: 180.0
+  general: 150.0 
