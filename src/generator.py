@@ -23,12 +23,14 @@ class LaTeXInvoiceGenerator:
     self.template_path = template_path
     # No longer using templates - LaTeX is generated directly
 
-  def generate_latex(self, invoice: Invoice) -> str:
+  def generate_latex(self, invoice: Invoice, start_date: str = None, end_date: str = None) -> str:
     """
     Generate LaTeX source code from an Invoice object using the invoice package.
 
     Args:
       invoice: Invoice object to convert to LaTeX
+      start_date: Start date of billing period (YYYY-MM-DD)
+      end_date: End date of billing period (YYYY-MM-DD)
 
     Returns:
       Complete LaTeX source code as string
@@ -37,7 +39,7 @@ class LaTeXInvoiceGenerator:
     latex_parts = []
 
     # Header
-    latex_parts.append(self._get_latex_header(invoice))
+    latex_parts.append(self._get_latex_header(invoice, start_date, end_date))
 
     # Invoice content using invoice package
     latex_parts.append(self._generate_invoice_content_with_package(invoice))
@@ -47,7 +49,7 @@ class LaTeXInvoiceGenerator:
 
     return '\n'.join(latex_parts)
 
-  def _get_latex_header(self, invoice: Invoice) -> str:
+  def _get_latex_header(self, invoice: Invoice, start_date: str = None, end_date: str = None) -> str:
     """Generate LaTeX document header using fancyhdr approach."""
     # Calculate totals for header
     subtotal = sum(item.amount for item in invoice.billable_items)
@@ -161,7 +163,11 @@ class LaTeXInvoiceGenerator:
 % Project title
 \\Large\\textbf{{services provided}}\\normalsize
 
-\\vspace{{1cm}}"""
+% Date range subtitle
+\\vspace{{0.2cm}}
+\\small\\textbf{{{start_date.replace('-', '') if start_date else ''}—{end_date.replace('-', '') if end_date else ''}}}\\normalsize
+
+\\vspace{{0.8cm}}"""
 
     return header_section
 
@@ -200,7 +206,7 @@ class LaTeXInvoiceGenerator:
 
 \\vspace{{0.5cm}}
 
-{invoice.payment_instructions or 'please remit payment within 30 days of invoice date.'}
+{invoice.payment_instructions or 'please remit payment within 30 days of invoice date'}
 \\begin{{itemize}}
 \\item \\ulink{{https://paypal.me/jmatter4}}{{paypal: jmatter4@gmail.com}}
 \\item \\ulink{{https://venmo.com/u/John-Matter}}{{venmo:  @John-Matter}}

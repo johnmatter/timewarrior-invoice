@@ -146,7 +146,7 @@ def main(start_date: str, end_date: str, client: str, output: str,
 
     # Generate LaTeX
     generator = LaTeXInvoiceGenerator(template)
-    latex_content = generator.generate_latex(invoice)
+    latex_content = generator.generate_latex(invoice, start_date, end_date)
 
     if verbose:
       click.echo("LaTeX content generated")
